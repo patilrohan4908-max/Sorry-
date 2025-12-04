@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apology for My Love</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffe6f2, #ffb3d9);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .page {
+            display: none;
+            padding: 50px;
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .page.active {
+            display: flex;
+        }
+        h1, h2 {
+            color: #d63384;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ffb3d9;
+            border-radius: 10px;
+            margin: 20px;
+            text-align: center;
+        }
+        button {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            animation: float 6s infinite linear;
+        }
+        .heart.light-pink {
+            color: #ffb3d9;
+        }
+        .heart.red {
+            color: #ff1493;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+        .emoji {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts">
+        <!-- Floating hearts -->
+        <div class="heart light-pink" style="left: 10%; animation-delay: 0s;">💖</div>
+        <div class="heart red" style="left: 20%; animation-delay: 1s;">❤️</div>
+        <div class="heart light-pink" style="left: 30%; animation-delay: 2s;">💕</div>
+        <div class="heart red" style="left: 40%; animation-delay: 3s;">💘</div>
+        <div class="heart light-pink" style="left: 50%; animation-delay: 4s;">💖</div>
+        <div class="heart red" style="left: 60%; animation-delay: 5s;">❤️</div>
+        <div class="heart light-pink" style="left: 70%; animation-delay: 6s;">💕</div>
+        <div class="heart red" style="left: 80%; animation-delay: 7s;">💘</div>
+        <div class="heart light-pink" style="left: 90%; animation-delay: 8s;">💖</div>
+    </div>
+
+    <!-- Page 1 -->
+    <div id="page1" class="page active">
+        <h1>Welcome to My Heartfelt Apology <span class="emoji">😘</span></h1>
+        <p>Before we begin, please enter your beautiful name here:</p>
+        <input type="text" id="nameInput" placeholder="Your Name">
+        <button onclick="startApology()">Start My Apology 💌</button>
+    </div>
+
+    <!-- Page 2 -->
+    <div id="page2" class="page">
+        <h2>Page 1: I'm So Sorry, <span id="userName"></span> <span class="emoji">😢</span></h2>
+        <p>I'm truly sorry for forcing you to live with me. I know it hurt you, and I realize now why you put up with it for so long – because you cared deeply, even when I didn't see it. <span class="emoji">💔</span></p>
+        <p>You've been so patient, and I see the pain in your eyes. I love you more than words can say. <span class="emoji">🥺</span></p>
+        <button onclick="prevPage()">Back</button>
+        <button onclick="nextPage()">Next</button>
+    </div>
+
+    <!-- Page 3 -->
+    <div id="page3" class="page">
+        <h2>Page 2: Forcing You to Talk <span class="emoji">😔</span></h2>
+        <p>Sorry for forcing you to talk when you didn't want to. I see how that made you feel trapped and hurt. You did it for me because you wanted to make me happy, and I took that for granted. <span class="emoji">🙏</span></p>
+        <p>Your kindness shines through, even in the toughest times. I promise to listen more now. <span class="emoji">❤️</span></p>
+        <button onclick="prevPage()">Back</button>
+        <button onclick="nextPage()">Next</button>
+    </div>
+
+    <!-- Page 4 -->
+    <div id="page4" class="page">
+        <h2>Page 3: Forcing Your Attention <span class="emoji">😞</span></h2>
+        <p>I'm sorry for forcing you to give me attention. It must have been exhausting, and I realize why you endured it – out of love for me. Your heart is so pure. <span class="emoji">💕</span></p>
+        <p>I see the hurt now, and it breaks me. Let's heal together. <span class="emoji">🤗</span></p>
+        <button onclick="prevPage()">Back</button>
+        <button onclick="nextPage()">Next</button>
+    </div>
+
+    <!-- Page 5 -->
+    <div id="page5" class="page">
+        <h2>Page 4: Realizing Your Pain <span class="emoji">😭</span></h2>
+        <p>You've been hurt so much, and I finally understand why you did all this for me – because you believed in us. I was blind to your sacrifices. <span class="emoji">💔</span></p>
+        <p>Your strength amazes me. I love you endlessly. <span class="emoji">💖</span></p>
+        <button onclick="prevPage()">Back</button>
+        <button onclick="nextPage()">Next</button>
+    </div>
+
+    <!-- Page 6 -->
+    <div id="page6" class="page">
+        <h2>Page 5: My Promise to You <span class="emoji">😊</span></h2>
+        <p>From now on, I'll respect your space and choices. I see why you stayed – for the love we share. Let's build something beautiful without force. <span class="emoji">🌹</span></p>
+        <p>You mean the world to me, <span id="userName2"></span>. Forgive me? I love you. <span class="emoji">💑</span></p>
+        <button onclick="prevPage()">Back</button>
+        <button onclick="finish()">Finish 💕</button>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 6;
+        let userName = '';
+
+        function startApology() {
+            userName = document.getElementById('nameInput').value || 'My Love';
+            document.getElementById('userName').textContent = userName;
+            document.getElementById('userName2').textContent = userName;
+            nextPage();
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                document.getElementById('page' + currentPage).classList.remove('active');
+                currentPage++;
+                document.getElementById('page' + currentPage).classList.add('active');
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                document.getElementById('page' + currentPage).classList.remove('active');
+                currentPage--;
+                document.getElementById('page' + currentPage).classList.add('active');
+            }
+        }
+
+        function finish() {
+            alert('Thank you for reading, ' + userName + '. I hope this helps heal us. 💖');
+        }
+    </script>
+</body>
+</html>
